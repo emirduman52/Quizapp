@@ -1,0 +1,21 @@
+body {
+    background-color: blanchedalmond !important;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.card {
+    margin-top: 20px;
+    display: flex;
+}
+
+.card-width {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
