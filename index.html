@@ -21,7 +21,7 @@
     ></script>
   </head>
 
-  <body>
+  <body onload="init()">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">QuizzApp</a>
@@ -31,21 +31,21 @@
     <div class="card text-center card-width">
       <div class="card-header">Quizz</div>
       <div class="card-body">
-        <h5 class="card-title">Frage 1</h5>
+        <h5 class="card-title" id="questionText"></h5>
         <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+          <div class="card-body" id="text_1">This is some text within a card body.</div>
         </div>
         <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+          <div class="card-body" id="text_2">This is some text within a card body.</div>
         </div>
         <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+          <div class="card-body" id="text_3">This is some text within a card body.</div>
         </div>
         <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+          <div class="card-body" id="text_4">This is some text within a card body.</div>
         </div>
         <div class="card-footer text-body-secondary">
-          <div> <b>1</b> von <b>5</b> Fragen</div>
+          <div> <b>1</b> von <b id="all-questions">5</b> Fragen</div>
           <span>Religion</span>
           <div>
             <button class="btn btn-primary">Nächste Frage</button>
