@@ -6,16 +6,31 @@ body {
 
 .card {
     margin-top: 20px;
+}
+
+.card-section {
     display: flex;
+    justify-content: center;
 }
 
 .card-width {
     margin-left: 20px;
     margin-right: 20px;
+    width: 75vw;
 }
 
 .card-footer {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.card-line-hover {
+    transition: background-color 0.4s ease;
+    transform: 0.3s ease;
+}
+
+.card-line-hover:hover {
+    background-color: rgba(214, 198, 184, 0.5);
+    cursor: pointer;
 }

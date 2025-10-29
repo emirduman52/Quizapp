@@ -114,3 +114,14 @@ let showQuestion = () => {
   document.getElementById("text_3").innerHTML = question.antworten[2].text_3;
   document.getElementById("text_4").innerHTML = question.antworten[3].text_4;
 };
+
+let answer = (index, Element) => {
+  let question = questions[currentQuestion];
+  let antwort = question.antworten[index];
+
+  if (antwort.korrekt) {
+    Element.style.backgroundColor = "lightgreen";
+  } else {
+    Element.style.backgroundColor = "lightcoral";
+  }
+};

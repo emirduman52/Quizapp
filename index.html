@@ -27,31 +27,40 @@
         <a class="navbar-brand" href="#">QuizzApp</a>
       </div>
     </nav>
-
-    <div class="card text-center card-width">
-      <div class="card-header">Quizz</div>
-      <div class="card-body">
-        <h5 class="card-title" id="questionText"></h5>
-        <div class="card">
-          <div class="card-body" id="text_1">This is some text within a card body.</div>
-        </div>
-        <div class="card">
-          <div class="card-body" id="text_2">This is some text within a card body.</div>
-        </div>
-        <div class="card">
-          <div class="card-body" id="text_3">This is some text within a card body.</div>
-        </div>
-        <div class="card">
-          <div class="card-body" id="text_4">This is some text within a card body.</div>
-        </div>
-        <div class="card-footer text-body-secondary">
-          <div> <b>1</b> von <b id="all-questions">5</b> Fragen</div>
-          <span>Religion</span>
-          <div>
-            <button class="btn btn-primary">Nächste Frage</button>
+    <section class="card-section">
+      <div class="card text-center card-width">
+        <div class="card-header">Quizz</div>
+        <div class="card-body">
+          <h5 class="card-title" id="questionText"></h5>
+          <div class="card">
+            <div class="card-body card-line-hover" id="text_1" onclick="answer(0, this)">
+              This is some text within a card body.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body card-line-hover" id="text_2" onclick="answer(1, this)">
+              This is some text within a card body.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body card-line-hover" id="text_3" onclick="answer(2, this)">
+              This is some text within a card body.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body card-line-hover" id="text_4" onclick="answer(3, this)">
+              This is some text within a card body.
+            </div>
+          </div>
+          <div class="card-footer text-body-secondary">
+            <div><b>1</b> von <b id="all-questions">5</b> Fragen</div>
+            <span>Religion</span>
+            <div>
+              <button class="btn btn-primary">Nächste Frage</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
 </html>
