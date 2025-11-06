@@ -33,30 +33,30 @@
         <div class="card-body">
           <h5 class="card-title" id="questionText"></h5>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_1" onclick="answer(0, this)">
+            <div class="card-body card-line-hover" id="text_0" onclick="answer(0, this)">
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_2" onclick="answer(1, this)">
+            <div class="card-body card-line-hover" id="text_1" onclick="answer(1, this)">
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_3" onclick="answer(2, this)">
+            <div class="card-body card-line-hover" id="text_2" onclick="answer(2, this)">
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_4" onclick="answer(3, this)">
+            <div class="card-body card-line-hover" id="text_3" onclick="answer(3, this)">
               This is some text within a card body.
             </div>
           </div>
           <div class="card-footer text-body-secondary">
-            <div><b>1</b> von <b id="all-questions">5</b> Fragen</div>
+            <div><b id="question_counter">1</b> von <b id="all-questions"></b> Fragen</div>
             <span>Religion</span>
             <div>
-              <button class="btn btn-primary">Nächste Frage</button>
+              <button onclick="nextQuestion()" class="btn btn-primary" id="next_button" disabled>Nächste Frage</button>
             </div>
           </div>
         </div>
