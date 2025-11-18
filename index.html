@@ -27,36 +27,83 @@
         <a class="navbar-brand" href="#">QuizzApp</a>
       </div>
     </nav>
-    <section class="card-section">
+    <section class="endScreen_section">
+      <div class="card" style="display: none" id="endScreen">
+        <img src="./Endscreen.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">Du hast das Quiz beendet.</p>
+        </div>
+        <div class="results_section">
+          <div><img src="./tropy.png" alt="Trophy" /></div>
+          <div>
+            Du hast <b id="correct_questions">XXX</b> Fragen von
+            <b id="questionsLength">XXX</b> richtig beantwortet.
+          </div>
+          <div class="button_row">
+            <button onclick="restartGame()" class="btn btn-primary">
+              Erneut spielen
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card-section" id="questionBody">
       <div class="card text-center card-width">
         <div class="card-header">Quizz</div>
         <div class="card-body">
           <h5 class="card-title" id="questionText"></h5>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_0" onclick="answer(0, this)">
+            <div
+              class="card-body card-line-hover"
+              id="text_0"
+              onclick="answer(0, this)"
+            >
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_1" onclick="answer(1, this)">
+            <div
+              class="card-body card-line-hover"
+              id="text_1"
+              onclick="answer(1, this)"
+            >
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_2" onclick="answer(2, this)">
+            <div
+              class="card-body card-line-hover"
+              id="text_2"
+              onclick="answer(2, this)"
+            >
               This is some text within a card body.
             </div>
           </div>
           <div class="card">
-            <div class="card-body card-line-hover" id="text_3" onclick="answer(3, this)">
+            <div
+              class="card-body card-line-hover"
+              id="text_3"
+              onclick="answer(3, this)"
+            >
               This is some text within a card body.
             </div>
           </div>
           <div class="card-footer text-body-secondary">
-            <div><b id="question_counter">1</b> von <b id="all-questions"></b> Fragen</div>
+            <div>
+              <b id="question_counter">1</b> von
+              <b id="all-questions"></b> Fragen
+            </div>
             <span>Religion</span>
             <div>
-              <button onclick="nextQuestion()" class="btn btn-primary" id="next_button" disabled>Nächste Frage</button>
+              <button
+                onclick="nextQuestion()"
+                class="btn btn-primary"
+                id="next_button"
+                disabled
+              >
+                Nächste Frage
+              </button>
             </div>
           </div>
         </div>
