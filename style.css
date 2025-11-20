@@ -1,64 +1,72 @@
 body {
-    background-color: blanchedalmond !important;
-    min-height: 100vh;
-    box-sizing: border-box;
+  background-color: blanchedalmond !important;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .card {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .card-section {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .card-width {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 75vw;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 75vw;
 }
 
 .card-footer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-line-hover {
-    transition: background-color 0.4s ease;
-    transform: 0.3s ease;
+  transition: background-color 0.4s ease;
+  transform: 0.3s ease;
 }
 
 .card-line-hover:hover {
-    background-color: rgba(214, 198, 184, 0.5);
-    cursor: pointer;
+  background-color: rgba(214, 198, 184, 0.5);
+  cursor: pointer;
 }
 
 .card-img-top {
-    width: 100%;
-    object-fit: cover;
-    max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  max-height: 400px;
 }
 
 #endScreen {
-    width: 600px;
-    max-height: 460px;
+  width: 600px;
+  max-height: 460px;
 }
 
 .endScreen_section {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .results_section {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 10px;
 }
 
 .button_row {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.progress {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+    font-size: 8px;
 }

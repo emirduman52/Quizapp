@@ -99,66 +99,143 @@ let questions = [
   },
 ];
 
-let init = () => {
-  document.getElementById("all-questions").innerHTML = questions.length;
-  showQuestion();
-  endScreenCounter();
-};
-
 let currentQuestion = 0;
 let answeredCorrect = 0;
 
-let showQuestion = () => {
-  let question = questions[currentQuestion];
-  document.getElementById("questionText").innerHTML = question["frage"];
-  document.getElementById("text_0").innerHTML = question.antworten[0].text_0;
-  document.getElementById("text_1").innerHTML = question.antworten[1].text_1;
-  document.getElementById("text_2").innerHTML = question.antworten[2].text_2;
-  document.getElementById("text_3").innerHTML = question.antworten[3].text_3;
-};
+// ---------------------------
+// Initializing
+// ---------------------------
+function init() {
+  updateTotalQuestionCounters();
+  showQuestion();
+}
 
-let answer = (index, Element) => {
-  let question = questions[currentQuestion];
-  let antwort = question.antworten[index];
+// ---------------------------
+// UI-Update Functions
+// ---------------------------
+function updateTotalQuestionCounters() {
+  document.getElementById("all-questions").innerHTML = questions.length;
+  document.getElementById("questionsLength").innerHTML = questions.length;
+}
 
-  if (antwort.korrekt) {
-    Element.style.backgroundColor = "lightgreen";
-    answeredCorrect++;
-  } else {
-    Element.style.backgroundColor = "lightcoral";
+function updateProgressBar() {
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const bar = document.querySelector(".progress-bar");
 
-    let richtigeAntwortIndex = question.antworten.findIndex(
-      (antwort) => antwort.korrekt === true
-    );
-    document.getElementById(
-      "text_" + richtigeAntwortIndex
-    ).style.backgroundColor = "lightgreen";
-  }
-  document.getElementById("next_button").disabled = false;
-};
+  bar.style.width = `${progress}%`;
+  bar.innerHTML = `${Math.round(progress)}%`;
+}
 
-let nextQuestion = () => {
-  for (let i = 0; i < 4; i++) {
-    document.getElementById("text_" + i).style.backgroundColor = "";
-  }
-
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    showQuestion();
-  } else {
-    document.getElementById("endScreen").style = "";
-    document.getElementById("questionBody").style = "display: none";
-  }
-  document.getElementById("next_button").disabled = true;
+function updateQuestionCounter() {
   document.getElementById("question_counter").innerHTML = currentQuestion + 1;
   document.getElementById("correct_questions").innerHTML = answeredCorrect;
-};
-
-let endScreenCounter = () => {
-  document.getElementById("questionsLength").innerHTML = questions.length;
-
 }
 
-let restartGame = () => {
-  document.getElementById("")
+function clearAnswerHighlights() {
+  for (let i = 0; i < 4; i++) {
+    document.getElementById(`text_${i}`).style.backgroundColor = "";
+  }
 }
+
+// ---------------------------
+// Show Questions
+// ---------------------------
+function showQuestion() {
+  const question = questions[currentQuestion];
+
+  document.getElementById("questionText").innerHTML = question.frage;
+
+  question.antworten.forEach((answer, index) => {
+    document.getElementById(`text_${index}`).innerHTML = answer[`text_${index}`];
+  });
+}
+
+// ---------------------------
+// Answer-Handling
+// ---------------------------
+function answer(index, element) {
+  const question = questions[currentQuestion];
+  const clickedAnswer = question.antworten[index];
+
+  if (clickedAnswer.korrekt) {
+    handleCorrectAnswer(element);
+  } else {
+    handleWrongAnswer(element, question);
+  }
+
+  document.getElementById("next_button").disabled = false;
+}
+
+function handleCorrectAnswer(element) {
+  element.style.backgroundColor = "lightgreen";
+  answeredCorrect++;
+}
+
+function handleWrongAnswer(element, question) {
+  element.style.backgroundColor = "lightcoral";
+
+  const correctIndex = question.antworten.findIndex(a => a.korrekt);
+  document.getElementById(`text_${correctIndex}`).style.backgroundColor = "lightgreen";
+}
+
+// ---------------------------
+// Navigation between Questions
+// ---------------------------
+function nextQuestion() {
+  clearAnswerHighlights();
+
+  if (isLastQuestion()) {
+    showEndScreen();
+  } else {
+    currentQuestion++;
+    showQuestion();
+  }
+
+  updateUIAfterQuestionChange();
+}
+
+function isLastQuestion() {
+  return currentQuestion >= questions.length - 1;
+}
+
+function updateUIAfterQuestionChange() {
+  document.getElementById("next_button").disabled = true;
+  updateQuestionCounter();
+  updateProgressBar();
+}
+
+// ---------------------------
+// Endscreen / Restart
+// ---------------------------
+function showEndScreen() {
+  document.getElementById("endScreen").style = "";
+  document.getElementById("questionBody").style = "display: none";
+}
+
+function restartGame() {
+  resetState();
+  resetProgressBar();
+  resetUI();
+  init();
+}
+
+function resetState() {
+  currentQuestion = 0;
+  answeredCorrect = 0;
+}
+
+function resetProgressBar() {
+  const startProgress = (1 / questions.length) * 100;
+  const bar = document.querySelector(".progress-bar");
+  bar.style.width = `${startProgress}%`;
+  bar.innerHTML = `${Math.round(startProgress)}%`;
+}
+
+function resetUI() {
+  document.getElementById("questionBody").style = "";
+  document.getElementById("endScreen").style = "display: none";
+  document.getElementById("question_counter").innerHTML = 1;
+}
+
+//querySelector greift einfach auf das erste element zu in dem fall die klasse,
+//get elementbyClassName würde die ganze liste nehmen
